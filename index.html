@@ -17,7 +17,7 @@
 
 body{
     min-height:100vh;
-    overflow-x:hidden;
+    overflow:hidden;
     font-family:'Sora',sans-serif;
     color:#eef7ff;
     background:url("./background.png") center/cover fixed no-repeat;
@@ -165,17 +165,8 @@ body::before{
         radial-gradient(circle at 20px 20px, rgba(255,255,255,.85) 0 8px, transparent 9px),
         radial-gradient(circle at 58px 30px, rgba(255,255,255,.65) 0 11px, transparent 12px),
         radial-gradient(circle at 100px 22px, rgba(255,255,255,.85) 0 8px, transparent 9px),
-        linear-gradient(
-            90deg,
-            transparent 0 20px,
-            rgba(255,255,255,.30) 21px 23px,
-            transparent 24px 55px
-        );
-    background-size:
-        112px 58px,
-        112px 58px,
-        112px 58px,
-        80px 80px;
+        linear-gradient(90deg, transparent 0 20px, rgba(255,255,255,.30) 21px 23px, transparent 24px 55px);
+    background-size:112px 58px,112px 58px,112px 58px,80px 80px;
     filter:drop-shadow(0 0 14px rgba(255,255,255,.55));
 }
 
@@ -192,28 +183,9 @@ body::before{
     animation:slowSpin 16s linear infinite;
 }
 
-.ornament-circle.one{
-    width:220px;
-    height:220px;
-    left:55px;
-    top:150px;
-}
-
-.ornament-circle.two{
-    width:260px;
-    height:260px;
-    right:75px;
-    bottom:160px;
-    animation-duration:20s;
-}
-
-.ornament-circle.three{
-    width:140px;
-    height:140px;
-    right:30%;
-    top:80px;
-    animation-duration:12s;
-}
+.ornament-circle.one{ width:220px; height:220px; left:55px; top:150px; }
+.ornament-circle.two{ width:260px; height:260px; right:75px; bottom:160px; animation-duration:20s; }
+.ornament-circle.three{ width:140px; height:140px; right:30%; top:80px; animation-duration:12s; }
 
 @keyframes slowSpin{
     to{ transform:rotate(360deg); }
@@ -223,12 +195,7 @@ body::before{
     position:absolute;
     width:420px;
     height:2px;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,245,210,.92) 0 8px,
-            transparent 8px 18px
-        );
+    background:repeating-linear-gradient(90deg, rgba(255,245,210,.92) 0 8px, transparent 8px 18px);
     filter:drop-shadow(0 0 8px rgba(255,245,210,.7));
     opacity:.82;
     animation:pearlFloat 5s ease-in-out infinite alternate;
@@ -288,7 +255,7 @@ body::before{
 
 .wrapper{
     width:min(1140px,92%);
-    min-height:100vh;
+    height:100vh;
     margin:auto;
     display:grid;
     grid-template-columns:315px 1fr;
@@ -319,6 +286,7 @@ body::before{
     border-radius:inherit;
     border:1px solid rgba(255,255,255,.18);
     pointer-events:none;
+    z-index:1;
 }
 
 .sidebar::after,
@@ -326,16 +294,11 @@ body::before{
     content:"";
     position:absolute;
     inset:-40%;
-    background:
-        linear-gradient(
-            120deg,
-            transparent,
-            rgba(255,255,255,.12),
-            transparent
-        );
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.12), transparent);
     transform:rotate(15deg);
     animation:panelShine 5.5s linear infinite;
     pointer-events:none;
+    z-index:1;
 }
 
 @keyframes panelShine{
@@ -349,7 +312,7 @@ body::before{
 }
 
 .panel{
-    min-height:620px;
+    height:78vh;
     padding:42px;
     border-radius:30px 58px 30px 58px;
 }
@@ -415,11 +378,28 @@ body::before{
     display:none;
     position:relative;
     z-index:2;
+    height:100%;
+    overflow-y:auto;
+    padding-right:10px;
 }
 
 .tab-content.active{
     display:block;
     animation:pageIn .38s ease;
+}
+
+.tab-content::-webkit-scrollbar{
+    width:8px;
+}
+
+.tab-content::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.08);
+    border-radius:999px;
+}
+
+.tab-content::-webkit-scrollbar-thumb{
+    background:rgba(165,209,231,.78);
+    border-radius:999px;
 }
 
 @keyframes pageIn{
@@ -444,6 +424,7 @@ body::before{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:16px;
+    padding-bottom:8px;
 }
 
 .card{
@@ -564,10 +545,16 @@ body::before{
 }
 
 @media(max-width:860px){
+    body{
+        overflow:auto;
+    }
+
     .wrapper{
+        height:auto;
+        min-height:100vh;
         grid-template-columns:1fr;
         align-items:start;
-        padding:28px 0;
+        padding:82px 0 28px;
     }
 
     .music-control{
@@ -588,7 +575,7 @@ body::before{
     }
 
     .panel{
-        min-height:auto;
+        height:72vh;
         padding:30px 22px;
     }
 
@@ -618,7 +605,6 @@ body::before{
     </div>
 
     <button id="musicToggle">♪</button>
-
     <input id="volumeSlider" type="range" min="0" max="100" value="45">
 </div>
 
@@ -672,25 +658,10 @@ body::before{
     <h2 class="section-title">PROFILE</h2>
 
     <div class="grid">
-        <div class="card">
-            <div class="label">NAME</div>
-            <div class="value">김소이 · Kim So I</div>
-        </div>
-
-        <div class="card">
-            <div class="label">BIRTHDAY</div>
-            <div class="value">01.30</div>
-        </div>
-
-        <div class="card">
-            <div class="label">MBTI</div>
-            <div class="value">ESTJ</div>
-        </div>
-
-        <div class="card">
-            <div class="label">COLOR</div>
-            <div class="value">Soft Blue · Water Blue · Deep Navy</div>
-        </div>
+        <div class="card"><div class="label">NAME</div><div class="value">김소이 · Kim So I</div></div>
+        <div class="card"><div class="label">BIRTHDAY</div><div class="value">01.30</div></div>
+        <div class="card"><div class="label">MBTI</div><div class="value">ESTJ</div></div>
+        <div class="card"><div class="label">COLOR</div><div class="value">Soft Blue · Water Blue · Deep Navy</div></div>
     </div>
 </div>
 
@@ -698,25 +669,10 @@ body::before{
     <h2 class="section-title">SYSTEM</h2>
 
     <div class="grid">
-        <div class="card">
-            <div class="label">OS</div>
-            <div class="value">SOI BLUEPRINT</div>
-        </div>
-
-        <div class="card">
-            <div class="label">STYLE</div>
-            <div class="value">FUTURISTIC</div>
-        </div>
-
-        <div class="card">
-            <div class="label">SPACE</div>
-            <div class="value">MIDNIGHT CITY</div>
-        </div>
-
-        <div class="card">
-            <div class="label">MOOD</div>
-            <div class="value">COLD NEON</div>
-        </div>
+        <div class="card"><div class="label">OS</div><div class="value">SOI BLUEPRINT</div></div>
+        <div class="card"><div class="label">STYLE</div><div class="value">FUTURISTIC</div></div>
+        <div class="card"><div class="label">SPACE</div><div class="value">MIDNIGHT CITY</div></div>
+        <div class="card"><div class="label">MOOD</div><div class="value">COLD NEON</div></div>
     </div>
 </div>
 
