@@ -350,24 +350,8 @@ body::before{
 
 .panel{
     min-height:620px;
-    max-height:78vh;
-    overflow-y:auto;
     padding:42px;
     border-radius:30px 58px 30px 58px;
-}
-
-.panel::-webkit-scrollbar{
-    width:10px;
-}
-
-.panel::-webkit-scrollbar-track{
-    background:rgba(255,255,255,.08);
-    border-radius:999px;
-}
-
-.panel::-webkit-scrollbar-thumb{
-    background:rgba(165,209,231,.72);
-    border-radius:999px;
 }
 
 .brand{
@@ -605,7 +589,6 @@ body::before{
 
     .panel{
         min-height:auto;
-        max-height:none;
         padding:30px 22px;
     }
 
@@ -636,19 +619,12 @@ body::before{
 
     <button id="musicToggle">♪</button>
 
-    <input
-        id="volumeSlider"
-        type="range"
-        min="0"
-        max="100"
-        value="45"
-    >
+    <input id="volumeSlider" type="range" min="0" max="100" value="45">
 </div>
 
 <div id="bgMusic"></div>
 
 <div class="object-layer">
-
     <div class="cloud left"></div>
     <div class="cloud right"></div>
 
@@ -670,56 +646,32 @@ body::before{
     <div class="hanging-star three">✶</div>
 
     <div id="sparkle-container"></div>
-
 </div>
 
 <main class="wrapper">
 
 <aside class="sidebar">
-
     <div class="brand">
         <h1>김소이</h1>
         <p>Kim So I · SOI BLUEPRINT</p>
     </div>
 
     <div class="menu">
-
-        <button class="menu-btn active" onclick="showTab('profile', this)">
-            PROFILE
-        </button>
-
-        <button class="menu-btn" onclick="showTab('system', this)">
-            SYSTEM
-        </button>
-
-        <button class="menu-btn" onclick="showTab('game', this)">
-            GAME
-        </button>
-
-        <button class="menu-btn" onclick="showTab('music', this)">
-            MUSIC
-        </button>
-
-        <button class="menu-btn" onclick="showTab('about', this)">
-            ABOUT SOI
-        </button>
-
-        <button class="menu-btn" onclick="showTab('links', this)">
-            LINKS
-        </button>
-
+        <button class="menu-btn active" onclick="showTab('profile', this)">PROFILE</button>
+        <button class="menu-btn" onclick="showTab('system', this)">SYSTEM</button>
+        <button class="menu-btn" onclick="showTab('game', this)">GAME</button>
+        <button class="menu-btn" onclick="showTab('music', this)">MUSIC</button>
+        <button class="menu-btn" onclick="showTab('about', this)">ABOUT SOI</button>
+        <button class="menu-btn" onclick="showTab('links', this)">LINKS</button>
     </div>
-
 </aside>
 
 <section class="panel">
 
 <div class="tab-content active" id="profile">
-
     <h2 class="section-title">PROFILE</h2>
 
     <div class="grid">
-
         <div class="card">
             <div class="label">NAME</div>
             <div class="value">김소이 · Kim So I</div>
@@ -739,17 +691,13 @@ body::before{
             <div class="label">COLOR</div>
             <div class="value">Soft Blue · Water Blue · Deep Navy</div>
         </div>
-
     </div>
-
 </div>
 
 <div class="tab-content" id="system">
-
     <h2 class="section-title">SYSTEM</h2>
 
     <div class="grid">
-
         <div class="card">
             <div class="label">OS</div>
             <div class="value">SOI BLUEPRINT</div>
@@ -769,46 +717,34 @@ body::before{
             <div class="label">MOOD</div>
             <div class="value">COLD NEON</div>
         </div>
-
     </div>
-
 </div>
 
 <div class="tab-content" id="game">
-
     <h2 class="section-title">GAME</h2>
 
     <div class="tags">
-
         <button class="tag">Stardew Valley</button>
         <button class="tag">Dead by Daylight</button>
         <button class="tag">PUBG</button>
         <button class="tag">Palworld</button>
-
         <button class="tag">Apex Legends</button>
         <button class="tag">Don't Starve Together</button>
         <button class="tag">Project Zomboid</button>
-
         <button class="tag">Lethal Company</button>
         <button class="tag">Raft</button>
         <button class="tag">The Forest</button>
-
         <button class="tag">Phasmophobia</button>
         <button class="tag">Human Fall Flat</button>
         <button class="tag">Tricky Towers</button>
-
         <button class="tag">Pummel Party</button>
-
     </div>
-
 </div>
 
 <div class="tab-content" id="music">
-
     <h2 class="section-title">MUSIC</h2>
 
     <div class="card">
-
         <div class="label">YOUTUBE MUSIC</div>
 
         <div class="value" style="margin-bottom:18px;">
@@ -816,7 +752,6 @@ body::before{
         </div>
 
         <div class="youtube-player">
-
             <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLua5_KU3eWrShi-DEp4wLj-jrChTveeXF"
                 title="YouTube music playlist"
@@ -824,287 +759,77 @@ body::before{
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
-
         </div>
-
     </div>
-
 </div>
 
 <div class="tab-content" id="about">
-
     <h2 class="section-title">ABOUT SOI</h2>
 
     <div class="grid">
-
-        <div class="card">
-            <div class="label">NAME</div>
-            <div class="value">김소이</div>
-        </div>
-
-        <div class="card">
-            <div class="label">FAVORITE COLOR</div>
-            <div class="value">Sky Blue</div>
-        </div>
-
-        <div class="card">
-            <div class="label">SEASON</div>
-            <div class="value">Autumn</div>
-        </div>
-
-        <div class="card">
-            <div class="label">TIME TYPE</div>
-            <div class="value">Night</div>
-        </div>
-
-        <div class="card">
-            <div class="label">DRINK</div>
-            <div class="value">Tea</div>
-        </div>
-
-        <div class="card">
-            <div class="label">ANIMALS</div>
-            <div class="value">Cat · Dolphin</div>
-        </div>
-
-        <div class="card">
-            <div class="label">FAVORITE FOOD</div>
-            <div class="value">Chicken</div>
-        </div>
-
-        <div class="card">
-            <div class="label">DISLIKE FOOD</div>
-            <div class="value">Spicy Food</div>
-        </div>
-
-        <div class="card">
-            <div class="label">MUSIC TASTE</div>
-            <div class="value">Hyperpop</div>
-        </div>
-
-        <div class="card">
-            <div class="label">BEST TIME</div>
-            <div class="value">After 9PM</div>
-        </div>
-
-        <div class="card">
-            <div class="label">INTERNET TIME</div>
-            <div class="value">12+ Hours</div>
-        </div>
-
-        <div class="card">
-            <div class="label">LONGEST GAME</div>
-            <div class="value">League of Legends · Stardew Valley</div>
-        </div>
-
-        <div class="card">
-            <div class="label">WEB AESTHETIC</div>
-            <div class="value">Y2K</div>
-        </div>
-
-        <div class="card">
-            <div class="label">ALGORITHM</div>
-            <div class="value">Battlegrounds</div>
-        </div>
-
-        <div class="card">
-            <div class="label">ONLINE DISLIKE</div>
-            <div class="value">Hate Speech</div>
-        </div>
-
-        <div class="card">
-            <div class="label">FAVORITE APP</div>
-            <div class="value">Pinterest</div>
-        </div>
-
-        <div class="card">
-            <div class="label">DISPLAY MODE</div>
-            <div class="value">Dark Mode</div>
-        </div>
-
-        <div class="card">
-            <div class="label">FAVORITE EMOJI</div>
-            <div class="value">🐬</div>
-        </div>
-
-        <div class="card">
-            <div class="label">GALLERY</div>
-            <div class="value">700+ Photos</div>
-        </div>
-
-        <div class="card">
-            <div class="label">CHROME TABS</div>
-            <div class="value">6~7+ Tabs</div>
-        </div>
-
-        <div class="card">
-            <div class="label">MBTI</div>
-            <div class="value">ESTJ-A</div>
-        </div>
-
-        <div class="card">
-            <div class="label">SELF DESCRIPTION</div>
-            <div class="value">귀찮다</div>
-        </div>
-
-        <div class="card">
-            <div class="label">DISLIKE TYPE</div>
-            <div class="value">Liars</div>
-        </div>
-
-        <div class="card">
-            <div class="label">LIKE TYPE</div>
-            <div class="value">People Who Are The Same Inside And Out</div>
-        </div>
-
-        <div class="card">
-            <div class="label">ALONE</div>
-            <div class="value">혼자가 좋아</div>
-        </div>
-
-        <div class="card">
-            <div class="label">STYLE</div>
-            <div class="value">Spontaneous</div>
-        </div>
-
-        <div class="card">
-            <div class="label">THINKING</div>
-            <div class="value">Logical</div>
-        </div>
-
-        <div class="card">
-            <div class="label">COMMON THOUGHT</div>
-            <div class="value">집에 가고 싶다</div>
-        </div>
-
-        <div class="card">
-            <div class="label">STRESS RELIEF</div>
-            <div class="value">Sleep</div>
-        </div>
-
-        <div class="card">
-            <div class="label">OFTEN HEARD</div>
-            <div class="value">영혼이 없어</div>
-        </div>
-
-        <div class="card">
-            <div class="label">FASHION</div>
-            <div class="value">Training Look</div>
-        </div>
-
-        <div class="card">
-            <div class="label">SCENT</div>
-            <div class="value">LUSH Twilight</div>
-        </div>
-
-        <div class="card">
-            <div class="label">WEATHER</div>
-            <div class="value">Cool Weather Without Sunlight</div>
-        </div>
-
-        <div class="card">
-            <div class="label">CITY MOOD</div>
-            <div class="value">Night City Full Of Lights</div>
-        </div>
-
-        <div class="card">
-            <div class="label">LIGHTING TIME</div>
-            <div class="value">2~3AM</div>
-        </div>
-
-        <div class="card">
-            <div class="label">CHARACTER</div>
-            <div class="value">Momonga</div>
-        </div>
-
-        <div class="card">
-            <div class="label">ARTIST</div>
-            <div class="value">Ariana Grande</div>
-        </div>
-
-        <div class="card">
-            <div class="label">COLOR MIX</div>
-            <div class="value">Hot Pink + Neon Blue</div>
-        </div>
-
-        <div class="card">
-            <div class="label">ROOM POINT</div>
-            <div class="value">Warm Atmosphere</div>
-        </div>
-
-        <div class="card">
-            <div class="label">OCEAN COLOR</div>
-            <div class="value">Dark Night Ocean</div>
-        </div>
-
-        <div class="card">
-            <div class="label">WANTED ITEM</div>
-            <div class="value">Computer</div>
-        </div>
-
-        <div class="card">
-            <div class="label">CAT OR DOG</div>
-            <div class="value">Cat</div>
-        </div>
-
-        <div class="card">
-            <div class="label">RECENT FUN</div>
-            <div class="value">Talking With Friends</div>
-        </div>
-
-        <div class="card">
-            <div class="label">BEFORE SLEEP</div>
-            <div class="value">Fixing The Blanket</div>
-        </div>
-
-        <div class="card">
-            <div class="label">FREQUENT WORD</div>
-            <div class="value">레로레로레로</div>
-        </div>
-
-        <div class="card">
-            <div class="label">OBSESSION</div>
-            <div class="value">Changes Every Week Or Month</div>
-        </div>
-
-        <div class="card">
-            <div class="label">REBIRTH</div>
-            <div class="value">Cat</div>
-        </div>
-
-        <div class="card">
-            <div class="label">LEARNING</div>
-            <div class="value">English · Japanese · Languages</div>
-        </div>
-
-        <div class="card">
-            <div class="label">SELF IMAGE</div>
-            <div class="value">A Modern Hotel In The Middle Of The Vast Ocean</div>
-        </div>
-
-        <div class="card">
-            <div class="label">LAST MESSAGE</div>
-            <div class="value">집이 제일 좋아</div>
-        </div>
-
+        <div class="card"><div class="label">NAME</div><div class="value">김소이</div></div>
+        <div class="card"><div class="label">FAVORITE COLOR</div><div class="value">Sky Blue</div></div>
+        <div class="card"><div class="label">SEASON</div><div class="value">Autumn</div></div>
+        <div class="card"><div class="label">TIME TYPE</div><div class="value">Night</div></div>
+        <div class="card"><div class="label">DRINK</div><div class="value">Tea</div></div>
+        <div class="card"><div class="label">ANIMALS</div><div class="value">Cat · Dolphin</div></div>
+        <div class="card"><div class="label">FAVORITE FOOD</div><div class="value">Chicken</div></div>
+        <div class="card"><div class="label">DISLIKE FOOD</div><div class="value">Spicy Food</div></div>
+        <div class="card"><div class="label">MUSIC TASTE</div><div class="value">Hyperpop</div></div>
+        <div class="card"><div class="label">BEST TIME</div><div class="value">After 9PM</div></div>
+        <div class="card"><div class="label">INTERNET TIME</div><div class="value">12+ Hours</div></div>
+        <div class="card"><div class="label">LONGEST GAME</div><div class="value">League of Legends · Stardew Valley</div></div>
+        <div class="card"><div class="label">WEB AESTHETIC</div><div class="value">Y2K</div></div>
+        <div class="card"><div class="label">ALGORITHM</div><div class="value">Battlegrounds</div></div>
+        <div class="card"><div class="label">ONLINE DISLIKE</div><div class="value">Hate Speech</div></div>
+        <div class="card"><div class="label">FAVORITE APP</div><div class="value">Pinterest</div></div>
+        <div class="card"><div class="label">DISPLAY MODE</div><div class="value">Dark Mode</div></div>
+        <div class="card"><div class="label">FAVORITE EMOJI</div><div class="value">🐬</div></div>
+        <div class="card"><div class="label">GALLERY</div><div class="value">700+ Photos</div></div>
+        <div class="card"><div class="label">CHROME TABS</div><div class="value">6~7+ Tabs</div></div>
+        <div class="card"><div class="label">MBTI</div><div class="value">ESTJ-A</div></div>
+        <div class="card"><div class="label">SELF DESCRIPTION</div><div class="value">귀찮다</div></div>
+        <div class="card"><div class="label">DISLIKE TYPE</div><div class="value">Liars</div></div>
+        <div class="card"><div class="label">LIKE TYPE</div><div class="value">People Who Are The Same Inside And Out</div></div>
+        <div class="card"><div class="label">ALONE</div><div class="value">혼자가 좋아</div></div>
+        <div class="card"><div class="label">STYLE</div><div class="value">Spontaneous</div></div>
+        <div class="card"><div class="label">THINKING</div><div class="value">Logical</div></div>
+        <div class="card"><div class="label">COMMON THOUGHT</div><div class="value">집에 가고 싶다</div></div>
+        <div class="card"><div class="label">STRESS RELIEF</div><div class="value">Sleep</div></div>
+        <div class="card"><div class="label">OFTEN HEARD</div><div class="value">영혼이 없어</div></div>
+        <div class="card"><div class="label">FASHION</div><div class="value">Training Look</div></div>
+        <div class="card"><div class="label">SCENT</div><div class="value">LUSH Twilight</div></div>
+        <div class="card"><div class="label">WEATHER</div><div class="value">Cool Weather Without Sunlight</div></div>
+        <div class="card"><div class="label">CITY MOOD</div><div class="value">Night City Full Of Lights</div></div>
+        <div class="card"><div class="label">LIGHTING TIME</div><div class="value">2~3AM</div></div>
+        <div class="card"><div class="label">CHARACTER</div><div class="value">Momonga</div></div>
+        <div class="card"><div class="label">ARTIST</div><div class="value">Ariana Grande</div></div>
+        <div class="card"><div class="label">COLOR MIX</div><div class="value">Hot Pink + Neon Blue</div></div>
+        <div class="card"><div class="label">ROOM POINT</div><div class="value">Warm Atmosphere</div></div>
+        <div class="card"><div class="label">OCEAN COLOR</div><div class="value">Dark Night Ocean</div></div>
+        <div class="card"><div class="label">WANTED ITEM</div><div class="value">Computer</div></div>
+        <div class="card"><div class="label">CAT OR DOG</div><div class="value">Cat</div></div>
+        <div class="card"><div class="label">RECENT FUN</div><div class="value">Talking With Friends</div></div>
+        <div class="card"><div class="label">BEFORE SLEEP</div><div class="value">Fixing The Blanket</div></div>
+        <div class="card"><div class="label">FREQUENT WORD</div><div class="value">레로레로레로</div></div>
+        <div class="card"><div class="label">OBSESSION</div><div class="value">Changes Every Week Or Month</div></div>
+        <div class="card"><div class="label">REBIRTH</div><div class="value">Cat</div></div>
+        <div class="card"><div class="label">LEARNING</div><div class="value">English · Japanese · Languages</div></div>
+        <div class="card"><div class="label">SELF IMAGE</div><div class="value">A Modern Hotel In The Middle Of The Vast Ocean</div></div>
+        <div class="card"><div class="label">LAST MESSAGE</div><div class="value">집이 제일 좋아</div></div>
     </div>
-
 </div>
 
 <div class="tab-content" id="links">
-
     <h2 class="section-title">LINKS</h2>
 
     <div class="link-list">
-
         <a class="link"
            href="https://www.youtube.com/@SO.I_Archive"
            target="_blank">
            YouTube · @SO.I_Archive
         </a>
-
     </div>
-
 </div>
 
 </section>
@@ -1114,7 +839,6 @@ body::before{
 
 <script>
 function showTab(tabId, btn){
-
     document.querySelectorAll('.tab-content')
     .forEach(tab => tab.classList.remove('active'));
 
@@ -1133,7 +857,6 @@ document.getElementById('sparkle-container');
 const marks = ['✦','✧','✶','⋆','✷'];
 
 for(let i = 0; i < 95; i++){
-
     const s = document.createElement('div');
 
     s.className = 'sparkle';
@@ -1163,7 +886,6 @@ let player;
 let musicOn = false;
 
 function onYouTubeIframeAPIReady(){
-
     player = new YT.Player('bgMusic', {
         height:'0',
         width:'0',
@@ -1191,7 +913,6 @@ const volumeSlider =
 document.getElementById('volumeSlider');
 
 musicToggle.addEventListener('click', ()=>{
-
     if(!player){
         return;
     }
@@ -1199,21 +920,17 @@ musicToggle.addEventListener('click', ()=>{
     musicOn = !musicOn;
 
     if(musicOn){
-
         player.unMute();
         player.playVideo();
         player.setVolume(Number(volumeSlider.value));
         musicToggle.textContent = 'Ⅱ';
-
     }else{
-
         player.mute();
         musicToggle.textContent = '♪';
     }
 });
 
 volumeSlider.addEventListener('input', ()=>{
-
     if(!player){
         return;
     }
@@ -1221,11 +938,8 @@ volumeSlider.addEventListener('input', ()=>{
     player.setVolume(Number(volumeSlider.value));
 
     if(Number(volumeSlider.value) === 0){
-
         player.mute();
-
     }else if(musicOn){
-
         player.unMute();
     }
 });
