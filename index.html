@@ -35,33 +35,75 @@ body::before{
     z-index:-6;
 }
 
-/* 음악 버튼 */
+/* 음악 컨트롤 */
 .music-control{
     position:fixed;
     top:18px;
     right:18px;
     z-index:9999;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 14px;
+    border-radius:999px;
+
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.34);
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 0 24px rgba(165,209,231,.38),
+        0 0 50px rgba(165,209,231,.18);
+}
+
+.music-info{
+    display:flex;
+    flex-direction:column;
+    line-height:1.15;
+}
+
+.music-title{
+    font-size:.8rem;
+    font-weight:700;
+    color:#fff;
+}
+
+.music-artist{
+    font-size:.68rem;
+    color:#a9d6f2;
 }
 
 #musicToggle{
-    width:46px;
-    height:46px;
+    width:34px;
+    height:34px;
     border:none;
     border-radius:50%;
-    background:rgba(165,209,231,.85);
+    background:rgba(165,209,231,.9);
     color:#071a33;
-    font-size:16px;
     font-weight:700;
-    backdrop-filter:blur(10px);
-    box-shadow:
-        0 0 24px rgba(165,209,231,.45),
-        0 0 50px rgba(165,209,231,.22);
-    transition:.22s;
     cursor:inherit;
+    transition:.22s;
 }
 
 #musicToggle:hover{
     transform:scale(1.08);
+}
+
+#volumeSlider{
+    width:90px;
+    accent-color:#a5d1e7;
+}
+
+/* 유튜브 플레이어 숨김 */
+#bgMusic{
+    position:fixed;
+    width:0;
+    height:0;
+    overflow:hidden;
+    opacity:0;
+    pointer-events:none;
 }
 
 /* 오브젝트 */
@@ -631,6 +673,18 @@ body::before{
         padding:28px 0;
     }
 
+    .music-control{
+        left:50%;
+        right:auto;
+        transform:translateX(-50%);
+        top:12px;
+        max-width:92%;
+    }
+
+    #volumeSlider{
+        width:70px;
+    }
+
     .menu{
         display:grid;
         grid-template-columns:repeat(2,1fr);
@@ -651,23 +705,35 @@ body::before{
     .menu{
         grid-template-columns:1fr;
     }
+
+    .music-info{
+        display:none;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 음악 -->
+<!-- 음악 컨트롤 -->
 <div class="music-control">
+    <div class="music-info">
+        <span class="music-title">paw, paw!</span>
+        <span class="music-artist">ILLIT</span>
+    </div>
+
     <button id="musicToggle">♪</button>
+
+    <input
+        id="volumeSlider"
+        type="range"
+        min="0"
+        max="100"
+        value="45"
+    >
 </div>
 
-<iframe
-    id="bgMusic"
-    src="https://www.youtube.com/embed/2DdJ84OVhhY?autoplay=1&mute=1&loop=1&playlist=2DdJ84OVhhY&controls=0"
-    allow="autoplay"
-    style="display:none;">
-</iframe>
+<div id="bgMusic"></div>
 
 <!-- 오브젝트 -->
 <div class="object-layer">
@@ -707,29 +773,24 @@ body::before{
 
     <div class="menu">
 
-        <button class="menu-btn active"
-                onclick="showTab('profile', this)">
-                PROFILE
+        <button class="menu-btn active" onclick="showTab('profile', this)">
+            PROFILE
         </button>
 
-        <button class="menu-btn"
-                onclick="showTab('system', this)">
-                SYSTEM
+        <button class="menu-btn" onclick="showTab('system', this)">
+            SYSTEM
         </button>
 
-        <button class="menu-btn"
-                onclick="showTab('game', this)">
-                GAME
+        <button class="menu-btn" onclick="showTab('game', this)">
+            GAME
         </button>
 
-        <button class="menu-btn"
-                onclick="showTab('music', this)">
-                MUSIC
+        <button class="menu-btn" onclick="showTab('music', this)">
+            MUSIC
         </button>
 
-        <button class="menu-btn"
-                onclick="showTab('links', this)">
-                LINKS
+        <button class="menu-btn" onclick="showTab('links', this)">
+            LINKS
         </button>
 
     </div>
@@ -869,9 +930,7 @@ body::before{
         <a class="link"
            href="https://www.youtube.com/@SO.I_Archive"
            target="_blank">
-
            YouTube · @SO.I_Archive
-
         </a>
 
         <a class="link" href="#">
@@ -884,6 +943,8 @@ body::before{
 
 </section>
 </main>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 function showTab(tabId, btn){
@@ -933,32 +994,75 @@ for(let i = 0; i < 95; i++){
     sparkleContainer.appendChild(s);
 }
 
-/* 음악 */
+/* YouTube IFrame API 음악 */
+let player;
+let musicOn = false;
+
+function onYouTubeIframeAPIReady(){
+
+    player = new YT.Player('bgMusic', {
+        height:'0',
+        width:'0',
+        videoId:'b8xFEnrDuIU',
+        playerVars:{
+            autoplay:1,
+            loop:1,
+            playlist:'b8xFEnrDuIU',
+            controls:0,
+            mute:1
+        },
+        events:{
+            onReady:function(event){
+                event.target.setVolume(45);
+                event.target.playVideo();
+            }
+        }
+    });
+}
+
 const musicToggle =
 document.getElementById('musicToggle');
 
-const bgMusic =
-document.getElementById('bgMusic');
-
-let musicOn = false;
+const volumeSlider =
+document.getElementById('volumeSlider');
 
 musicToggle.addEventListener('click', ()=>{
+
+    if(!player){
+        return;
+    }
 
     musicOn = !musicOn;
 
     if(musicOn){
 
-        bgMusic.src =
-        "https://www.youtube.com/embed/2DdJ84OVhhY?autoplay=1&mute=0&loop=1&playlist=2DdJ84OVhhY&controls=0";
-
-        musicToggle.textContent = "Ⅱ";
+        player.unMute();
+        player.playVideo();
+        player.setVolume(Number(volumeSlider.value));
+        musicToggle.textContent = 'Ⅱ';
 
     }else{
 
-        bgMusic.src =
-        "https://www.youtube.com/embed/2DdJ84OVhhY?autoplay=1&mute=1&loop=1&playlist=2DdJ84OVhhY&controls=0";
+        player.mute();
+        musicToggle.textContent = '♪';
+    }
+});
 
-        musicToggle.textContent = "♪";
+volumeSlider.addEventListener('input', ()=>{
+
+    if(!player){
+        return;
+    }
+
+    player.setVolume(Number(volumeSlider.value));
+
+    if(Number(volumeSlider.value) === 0){
+
+        player.mute();
+
+    }else if(musicOn){
+
+        player.unMute();
     }
 });
 </script>
